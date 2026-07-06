@@ -30,18 +30,18 @@ sed -i "s#_('Firmware Version'), (L\.isObject(boardinfo\.release) ? boardinfo\.r
 # sed -i 's/opp-microvolt = <937500>;/opp-microvolt = <950000>;/' target/linux/qualcommax/patches-6.12/0038-v6.16-arm64-dts-qcom-ipq6018-add-1.5GHz-CPU-Frequency.patch
 
 # 移除要替换的包
-rm -rf feeds/luci/applications/luci-app-argon-config
-rm -rf feeds/luci/applications/luci-app-wechatpush
-rm -rf feeds/luci/applications/luci-app-appfilter
-rm -rf feeds/luci/applications/luci-app-frpc
-rm -rf feeds/luci/applications/luci-app-frps
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/packages/net/open-app-filter
-rm -rf feeds/packages/net/ariang
-rm -rf feeds/packages/net/aria2
-rm -rf feeds/packages/net/nginx
-rm -rf feeds/packages/net/frp
-rm -rf feeds/packages/lang/golang
+# rm -rf feeds/luci/applications/luci-app-argon-config
+# rm -rf feeds/luci/applications/luci-app-wechatpush
+# rm -rf feeds/luci/applications/luci-app-appfilter
+# rm -rf feeds/luci/applications/luci-app-frpc
+# rm -rf feeds/luci/applications/luci-app-frps
+# rm -rf feeds/luci/themes/luci-theme-argon
+# rm -rf feeds/packages/net/open-app-filter
+# rm -rf feeds/packages/net/ariang
+# rm -rf feeds/packages/net/aria2
+# rm -rf feeds/packages/net/nginx
+# rm -rf feeds/packages/net/frp
+# rm -rf feeds/packages/lang/golang
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -64,14 +64,14 @@ function git_sparse_clone() {
 # Aria2 & nginx & Go & frp & Argon & Aurora & OpenList & Lucky & wechatpush & OpenAppFilter & 集客无线AC控制器 & 雅典娜LED控制
 # git_sparse_clone aria2 https://github.com/laipeng668/packages net/aria2
 # mv -f package/aria2 feeds/packages/net/aria2
-git_sparse_clone nginx https://github.com/openwrt/packages net/nginx
-mv -f package/nginx feeds/packages/net/nginx
+# git_sparse_clone nginx https://github.com/openwrt/packages net/nginx
+# mv -f package/nginx feeds/packages/net/nginx
 # git_sparse_clone ariang https://github.com/laipeng668/packages net/ariang
 # mv -f package/ariang feeds/packages/net/ariang
-git_sparse_clone master https://github.com/openwrt/packages lang/golang
-mv -f package/golang feeds/packages/lang/golang
-git_sparse_clone frp-binary-toml https://github.com/openwrt/packages net/frp
-mv -f package/frp feeds/packages/net/frp
+# git_sparse_clone master https://github.com/openwrt/packages lang/golang
+# mv -f package/golang feeds/packages/lang/golang
+# git_sparse_clone frp-binary-toml https://github.com/openwrt/packages net/frp
+# mv -f package/frp feeds/packages/net/frp
 # git_sparse_clone frp-toml https://github.com/laipeng668/luci applications/luci-app-frpc applications/luci-app-frps
 # mv -f package/luci-app-frpc feeds/luci/applications/luci-app-frpc
 # mv -f package/luci-app-frps feeds/luci/applications/luci-app-frps
