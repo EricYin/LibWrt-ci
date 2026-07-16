@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
      inputs:
       firmware_tag:
-        description: "release tag."
+        description: "release tag"
         required: true
         type: string
         default: IPQ60XX-1.0
