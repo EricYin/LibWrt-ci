@@ -251,21 +251,22 @@ jobs:
         rm -rf packages feeds.buildinfo version.buildinfo sha256sums profiles.json
         echo "FIRMWARE_PATH=$PWD" >> "$GITHUB_ENV"
         ls /mnt/openwrt/bin/targets/qualcommax/ipq60xx 
+              echo "RELEASE_TAG=RE-CS-02-$(date +"%Y%m%d")-${{ github.run_number }}" >> $GITHUB_ENV
 
     - name: Upload Firmware To Release(发布固件)
       if: steps.compile.outputs.status == 'success'
       uses: ncipollo/release-action@v1
       with:
-        name: ${{ inputs.firmware_tag }}
+        name: ${{ env.RELEASE_TAG }}
         allowUpdates: true
-        tag: ${{ inputs.firmware_tag }}
+        tag: ${{ env.RELEASE_TAG }}
         token: ${{ github.token }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
-          **This is OpenWrt Firmware for ${{ inputs.firmware_tag }}**
+          **This is OpenWrt Firmware for ${{ env.RELEASE_TAG }}**
           ### 📒 固件信息
           - ${{ inputs.release_summary }}
-          - 💻 这是 ${{ inputs.firmware_tag }} 平台使用的 OpenWrt 固件
+          - 💻 Openwrt
           - ⚽ 固件源码: ${{ inputs.repo_url }}
           - 💝 源码分支: ${{ inputs.repo_branch }}
           - 🌐 默认地址: **192.168.50.1**
