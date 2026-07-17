@@ -12,9 +12,6 @@ on:
       config_file:
         required: true
         type: string
-      firmware_tag:
-        required: true
-        type: string
       kernel_file:
         required: true
         type: string
